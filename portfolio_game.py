@@ -5,7 +5,6 @@ import webbrowser
 # Initialize Pygame
 pygame.init()
 
-# Load and play background music (this will be general background music for the entire game)
 pygame.mixer.init()  # Initialize the mixer module
 pygame.mixer.music.load("./garden-ambience-236744.mp3")
 pygame.mixer.music.set_volume(0.7)  # Set the volume (0.0 to 1.0)
@@ -113,7 +112,6 @@ def draw_text(text, x, y, color=WHITE):
 def display_zone_info(zone_name):
     clock = pygame.time.Clock()
     running = True
-    # Load the contact background image (only when in the Contact section)
     contact_bg = pygame.image.load("./background 1.png")
     # Scale the contact background to window size (550x450)
     contact_bg_scaled = pygame.transform.scale(contact_bg, (WIDTH, HEIGHT)) if zone_name == "Contact" else None
@@ -129,7 +127,6 @@ def display_zone_info(zone_name):
             for x in range(0, WIDTH, TILE_SIZE * ZOOM_FACTOR):
                 screen.blit(grass_tile, (x, y))
 
-        # Only display contact background image when in the Contact section
         if zone_name == "Contact" and contact_bg_scaled:
             screen.blit(contact_bg_scaled, (0, 0))  # Scale and display the image
         if zone_name == "Projects" and project_bg_scaled:
@@ -170,7 +167,6 @@ zone_frames = {
 sound_played = False
 sound_play_time = 0
 
-# Function to play the glitter sound for 1 second when entering a zone
 def play_glitter_sound_for_1_second():
     global sound_played, sound_play_time
     if not sound_played:
@@ -223,22 +219,18 @@ def main():
             if player_rect.colliderect(pygame.Rect(x, y, w, h)):
                 play_glitter_sound_for_1_second()  # Play glitter sound for 1 second
                 if zone_name == "Contact" and not contact_music_playing:
-                    # Play the medieval sound when entering the Contact section
                     pygame.mixer.music.load("./medeival-sound.mp3")
                     pygame.mixer.music.play()
                     contact_music_playing = True  # Set flag that music is playing
                 if zone_name == "About" and not contact_music_playing:
-                    # Play the medieval sound when entering the Contact section
                     pygame.mixer.music.load("./space-rumble-29970.mp3")
                     pygame.mixer.music.play()
                     contact_music_playing = True  # Set flag that music is playing
                 if zone_name == "Skills" and not contact_music_playing:
-                    # Play the medieval sound when entering the Contact section
                     pygame.mixer.music.load("./wind-whispers-with-birds-ambiance-209840.mp3")
                     pygame.mixer.music.play()
                     contact_music_playing = True  # Set flag that music is playing
                 if zone_name == "Projects" and not contact_music_playing:
-                    # Play the medieval sound when entering the Contact section
                     pygame.mixer.music.load("./underwater-cavern-159985.mp3")
                     pygame.mixer.music.play()
                     contact_music_playing = True  # Set flag that music is playing
