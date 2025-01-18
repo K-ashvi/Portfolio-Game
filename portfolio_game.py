@@ -7,12 +7,12 @@ pygame.init()
 
 # Load and play background music (this will be general background music for the entire game)
 pygame.mixer.init()  # Initialize the mixer module
-pygame.mixer.music.load(r"C:\Users\kashv\Downloads\garden-ambience-236744.mp3")
+pygame.mixer.music.load("./garden-ambience-236744.mp3")
 pygame.mixer.music.set_volume(0.7)  # Set the volume (0.0 to 1.0)
 pygame.mixer.music.play(-1)  # Play the music on loop (-1 means infinite loop)
 
 # Load sound effect (glitter sound)
-glitter_sound = pygame.mixer.Sound(r"C:\Users\kashv\Downloads\glitter-sound-effect-for-music-or-editing-224184.mp3")
+glitter_sound = pygame.mixer.Sound("./glitter-sound-effect-for-music-or-editing-224184.mp3")
 
 # Screen dimensions
 WIDTH, HEIGHT = 600, 450
@@ -24,12 +24,12 @@ WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
 # Load sprite sheets
-sprite_sheet = pygame.image.load(r"C:\Users\kashv\Downloads\Fairy\Fairy\Fairy 1.png").convert_alpha()
-grass_sheet = pygame.image.load(r"C:\Users\kashv\Downloads\GRASS+.png").convert_alpha()
-projects_sprite_sheet = pygame.image.load(r"C:\Users\kashv\Downloads\WarpDoor.png").convert_alpha()
-About_sprite_sheet = pygame.image.load(r"C:\Users\kashv\Downloads\WarpDoor.png").convert_alpha()
-skills_sprite_sheet = pygame.image.load(r"C:\Users\kashv\Downloads\WarpDoor.png").convert_alpha()
-Contact_sprite_sheet = pygame.image.load(r"C:\Users\kashv\Downloads\WarpDoor.png").convert_alpha()
+sprite_sheet = pygame.image.load("./Fairy 1.png").convert_alpha()
+grass_sheet = pygame.image.load("./GRASS+.png").convert_alpha()
+projects_sprite_sheet = pygame.image.load("./WarpDoor.png").convert_alpha()
+About_sprite_sheet = pygame.image.load("./WarpDoor.png").convert_alpha()
+skills_sprite_sheet = pygame.image.load("./WarpDoor.png").convert_alpha()
+Contact_sprite_sheet = pygame.image.load("./WarpDoor.png").convert_alpha()
 
 # Extract frames from sprite sheets
 def extract_frames(sheet, frame_width, frame_height, rows, cols):
@@ -88,24 +88,10 @@ houses = {
 
 portfolio_info = {
     "Projects": [
-        "1. Movie Reccomendation System using FastAPI for the backend ",
-        "   and HTML/CSS/JavaScript for the frontend.",
-        "2. Exploratory Data Analysis on my personal Letterboxd Data",
-        "3. Emotion Detector using CNN, trained on FER2013 dataset",
-        "4. News Summariser using BART & ",
-        "   fine-tuned on CNN Dailymail dataset",
-        "5. Stock Predictor full stack web app using LSTM model",
-        "6. Sticky Notes web app allowing users to create notes",
-        "7. Hangman using Javascript with integrated responsive design"
+        ""
     ],
     "About": [
-    "I'm Kashvi Srivastava, a passionate computer science",
-    "student with a strong background in programming and",
-    "software development. I’m pursuing my BTech in ",
-    "Computer Science from VIT, Vellore. I am proficient in",
-    "Python and Java and I enjoy tackling challenges in AI, ML,",
-    "data engineering, and NLP. Always looking to learn and push",
-    "my boundaries, both technically and socially",
+    "",
     
 ],
     "Skills": [
@@ -128,14 +114,14 @@ def display_zone_info(zone_name):
     clock = pygame.time.Clock()
     running = True
     # Load the contact background image (only when in the Contact section)
-    contact_bg = pygame.image.load(r"C:\Users\kashv\Downloads\contact\Free-Castle-Interior-Pixel-Game-Backgrounds\PNG\background 1\background 1.png")
+    contact_bg = pygame.image.load("./background 1.png")
     # Scale the contact background to window size (550x450)
     contact_bg_scaled = pygame.transform.scale(contact_bg, (WIDTH, HEIGHT)) if zone_name == "Contact" else None
-    project_bg=pygame.image.load(r"C:\Users\kashv\Downloads\projects\underwater-fantasy-files\underwater-fantasy-files\PNG\underwater-fantasy-preview.png")
+    project_bg=pygame.image.load("./underwater-fantasy-preview.png")
     project_bg_scaled = pygame.transform.scale(project_bg, (WIDTH, HEIGHT)) if zone_name == "Projects" else None
-    about_bg=pygame.image.load(r"C:\Users\kashv\Downloads\about\space_background_pack\space_background_pack\Assets\Blue Version\blue-preview.png")
+    about_bg=pygame.image.load("./blue-preview.png")
     about_bg_scaled = pygame.transform.scale(about_bg, (WIDTH, HEIGHT)) if zone_name == "About" else None
-    skills_bg=pygame.image.load(r"C:\Users\kashv\Downloads\skills\sky.png")
+    skills_bg=pygame.image.load("./sky.png")
     skills_bg_scaled=pygame.transform.scale(skills_bg, (WIDTH, HEIGHT)) if zone_name == "Skills" else None
     while running:
         screen.fill(BLACK)
@@ -238,22 +224,22 @@ def main():
                 play_glitter_sound_for_1_second()  # Play glitter sound for 1 second
                 if zone_name == "Contact" and not contact_music_playing:
                     # Play the medieval sound when entering the Contact section
-                    pygame.mixer.music.load(r"C:\Users\kashv\Downloads\contact\medeival-sound.mp3")
+                    pygame.mixer.music.load("./medeival-sound.mp3")
                     pygame.mixer.music.play()
                     contact_music_playing = True  # Set flag that music is playing
                 if zone_name == "About" and not contact_music_playing:
                     # Play the medieval sound when entering the Contact section
-                    pygame.mixer.music.load(r"C:\Users\kashv\Downloads\about\space-rumble-29970.mp3")
+                    pygame.mixer.music.load("./space-rumble-29970.mp3")
                     pygame.mixer.music.play()
                     contact_music_playing = True  # Set flag that music is playing
                 if zone_name == "Skills" and not contact_music_playing:
                     # Play the medieval sound when entering the Contact section
-                    pygame.mixer.music.load(r"C:\Users\kashv\Downloads\skills\wind-whispers-with-birds-ambiance-209840.mp3")
+                    pygame.mixer.music.load("./wind-whispers-with-birds-ambiance-209840.mp3")
                     pygame.mixer.music.play()
                     contact_music_playing = True  # Set flag that music is playing
                 if zone_name == "Projects" and not contact_music_playing:
                     # Play the medieval sound when entering the Contact section
-                    pygame.mixer.music.load(r"C:\Users\kashv\Downloads\underwater-cavern-159985.mp3")
+                    pygame.mixer.music.load("./underwater-cavern-159985.mp3")
                     pygame.mixer.music.play()
                     contact_music_playing = True  # Set flag that music is playing
                 display_zone_info(zone_name)
